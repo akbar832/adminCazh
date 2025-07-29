@@ -193,7 +193,7 @@
 
 <body class="bg-gray-100 min-h-screen">
     <div class="flex">
-    <!-- Sidebar -->
+       <!-- Sidebar -->
         <div class="w-80 bg-cards-teal min-h-screen">
             <!-- Logo -->
             <div class="p-6 border-b border-teal-600">
@@ -214,7 +214,9 @@
                     <li>
                         <a href="{{ route('admin.dashboard') }}" 
                            class="flex items-center px-6 py-3 text-white sidebar-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                            <div class="w-6 h-6 bg-white rounded mr-4"></div>
+                             <div class="w-7 h-7 mr-4">
+                                <img src="{{ asset('logoDash.png') }}" alt="Cards Logo" class="w-25 h-25">
+                            </div>
                             <span class="text-lg">Dashboard</span>
                         </a>
                     </li>
@@ -236,22 +238,23 @@
                             <li><a href="{{ route('admin.homepage.about') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.homepage.about') ? 'bg-cyan-800' : '' }}">About Section</a></li>
                             <li><a href="{{ route('admin.homepage.mitra') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.homepage.mitra') ? 'bg-cyan-800' : '' }}">Mitra Section</a></li>
                             <li><a href="{{ route('admin.homepage.product') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.homepage.product') ? 'bg-cyan-800' : '' }}">Product Section</a></li>
+                             <li><a href="{{ route('admin.homepage.testimoni') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.homepage.testimoni') ? 'bg-cyan-800' : '' }}">Testimoni Section</a></li>
                         </ul>
                     </li>
 
                     <!-- Edu -->
                     <li>
                         <div class="flex items-center px-6 py-3 text-white sidebar-item cursor-pointer" 
-                             onclick="toggleDropdown('edu-dropdown')">
+                            onclick="toggleDropdown('edu-dropdown')">
                             <div class="w-7 h-7 mr-4">
                                 <img src="{{ asset('logoEdu.png') }}" alt="Cards Logo" class="w-25 h-25">
                             </div>
                             <span class="text-lg flex-1">Edu</span>
-                            <svg class="w-4 h-4 dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 dropdown-arrow {{ request()->routeIs('admin.edu.*') ? 'rotate' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="edu-dropdown" class="hidden ml-12 mt-2 space-y-1">
+                        <ul id="edu-dropdown" class="{{ request()->routeIs('admin.edu.*') ? '' : 'hidden' }} ml-12 mt-2 space-y-1">
                             <li><a href="{{ route('admin.edu.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.edu.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
                             <li><a href="{{ route('admin.edu.about') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.edu.about') ? 'bg-cyan-800' : '' }}">About Section</a></li>
                             <li><a href="{{ route('admin.edu.features') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.edu.features') ? 'bg-cyan-800' : '' }}">Features Section</a></li>
@@ -262,77 +265,76 @@
                     <!-- Canteen -->
                     <li>
                         <div class="flex items-center px-6 py-3 text-white sidebar-item cursor-pointer" 
-                             onclick="toggleDropdown('canteen-dropdown')">
-                             <div class="w-7 h-7 mr-4">
+                            onclick="toggleDropdown('canteen-dropdown')">
+                            <div class="w-7 h-7 mr-4">
                                 <img src="{{ asset('logoCanteen.png') }}" alt="Cards Logo" class="w-25 h-25">
                             </div>
                             <span class="text-lg flex-1">Canteen</span>
-                            <svg class="w-4 h-4 dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 dropdown-arrow {{ request()->routeIs('admin.canteen.*') ? 'rotate' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="canteen-dropdown" class="hidden ml-12 mt-2 space-y-1">
+                        <ul id="canteen-dropdown" class="{{ request()->routeIs('admin.canteen.*') ? '' : 'hidden' }} ml-12 mt-2 space-y-1">
                             <li><a href="{{ route('admin.canteen.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.canteen.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
                             <li><a href="{{ route('admin.canteen.about') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.canteen.about') ? 'bg-cyan-800' : '' }}">About Section</a></li>
                             <li><a href="{{ route('admin.canteen.features') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.canteen.features') ? 'bg-cyan-800' : '' }}">Features Section</a></li>
-                           
                         </ul>
                     </li>
 
                     <!-- School -->
                     <li>
                         <div class="flex items-center px-6 py-3 text-white sidebar-item cursor-pointer" 
-                             onclick="toggleDropdown('school-dropdown')">
+                            onclick="toggleDropdown('school-dropdown')">
                             <div class="w-7 h-7 mr-4">
                                 <img src="{{ asset('logoSchool.png') }}" alt="Cards Logo" class="w-25 h-25">
                             </div>
                             <span class="text-lg flex-1">School</span>
-                            <svg class="w-4 h-4 dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 dropdown-arrow {{ request()->routeIs('admin.school.*') ? 'rotate' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="school-dropdown" class="hidden ml-12 mt-2 space-y-1">
-                             <li><a href="{{ route('admin.school.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.school.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
+                        <ul id="school-dropdown" class="{{ request()->routeIs('admin.school.*') ? '' : 'hidden' }} ml-12 mt-2 space-y-1">
+                            <li><a href="{{ route('admin.school.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.school.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
                             <li><a href="{{ route('admin.school.about') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.school.about') ? 'bg-cyan-800' : '' }}">About Section</a></li>
                             <li><a href="{{ route('admin.school.features') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.school.features') ? 'bg-cyan-800' : '' }}">Features Section</a></li>
-                             <li><a href="{{ route('admin.school.download') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.school.download') ? 'bg-cyan-800' : '' }}">Download Section</a></li>
+                            <li><a href="{{ route('admin.school.download') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.school.download') ? 'bg-cyan-800' : '' }}">Download Section</a></li>
                         </ul>
                     </li>
 
                     <!-- Parents -->
                     <li>
                         <div class="flex items-center px-6 py-3 text-white sidebar-item cursor-pointer" 
-                             onclick="toggleDropdown('parents-dropdown')">
+                            onclick="toggleDropdown('parents-dropdown')">
                             <div class="w-7 h-7 mr-4">
                                 <img src="{{ asset('logoParent.png') }}" alt="Cards Logo" class="w-25 h-25">
                             </div>
                             <span class="text-lg flex-1">Parents</span>
-                            <svg class="w-4 h-4 dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 dropdown-arrow {{ request()->routeIs('admin.parents.*') ? 'rotate' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="parents-dropdown" class="hidden ml-12 mt-2 space-y-1">
+                        <ul id="parents-dropdown" class="{{ request()->routeIs('admin.parents.*') ? '' : 'hidden' }} ml-12 mt-2 space-y-1">
                             <li><a href="{{ route('admin.parents.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.parents.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
                             <li><a href="{{ route('admin.parents.about') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.parents.about') ? 'bg-cyan-800' : '' }}">About Section</a></li>
                             <li><a href="{{ route('admin.parents.features') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.parents.features') ? 'bg-cyan-800' : '' }}">Features Section</a></li>
-                             <li><a href="{{ route('admin.parents.download') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.parents.download') ? 'bg-cyan-800' : '' }}">Download Section</a></li>
+                            <li><a href="{{ route('admin.parents.download') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.parents.download') ? 'bg-cyan-800' : '' }}">Download Section</a></li>
                         </ul>
                     </li>
 
                     <!-- FlexyCazh -->
                     <li>
                         <div class="flex items-center px-6 py-3 text-white sidebar-item cursor-pointer" 
-                             onclick="toggleDropdown('flexycazh-dropdown')">
-                             <div class="w-7 h-7 mr-4">
+                            onclick="toggleDropdown('flexycazh-dropdown')">
+                            <div class="w-7 h-7 mr-4">
                                 <img src="{{ asset('logoFlexy.png') }}" alt="Cards Logo" class="w-25 h-25">
                             </div>
                             <span class="text-lg flex-1">FlexyCazh</span>
-                            <svg class="w-4 h-4 dropdown-arrow" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 dropdown-arrow {{ request()->routeIs('admin.flexycazh.*') ? 'rotate' : '' }}" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <ul id="flexycazh-dropdown" class="hidden ml-12 mt-2 space-y-1">
-                           <li><a href="{{ route('admin.flexycazh.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.flexycazh.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
+                        <ul id="flexycazh-dropdown" class="{{ request()->routeIs('admin.flexycazh.*') ? '' : 'hidden' }} ml-12 mt-2 space-y-1">
+                        <li><a href="{{ route('admin.flexycazh.hero') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.flexycazh.hero') ? 'bg-cyan-800' : '' }}">Hero Section</a></li>
                             <li><a href="{{ route('admin.flexycazh.features') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.flexycazh.features') ? 'bg-cyan-800' : '' }}">Features Section</a></li>
                             <li><a href="{{ route('admin.flexycazh.tutorial') }}" class="block px-4 py-2 text-white text-sm hover:bg-cyan-800 rounded {{ request()->routeIs('admin.flexycazh.tutorial') ? 'bg-cyan-800' : '' }}">Tutorial Section</a></li>
                         </ul>

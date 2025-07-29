@@ -60,6 +60,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/product/{id}/edit', [AdminController::class, 'editHomepageProduct'])->name('product.edit');
             Route::put('/product/{id}', [AdminController::class, 'updateHomepageProduct'])->name('product.update');
             Route::delete('/product/{id}', [AdminController::class, 'deleteHomepageProduct'])->name('product.delete');
+            
+            // Testimoni Management
+            Route::get('/testimoni', [AdminController::class, 'homepageTestimoni'])->name('testimoni');
+            Route::get('/testimoni/create', [AdminController::class, 'createHomepageTestimoni'])->name('testimoni.create'); // Add this line
+            Route::post('/testimoni', [AdminController::class, 'storeHomepageTestimoni'])->name('testimoni.store'); // Add this line
+            Route::get('/testimoni/{id}/edit', [AdminController::class, 'editHomepageTestimoni'])->name('testimoni.edit'); // Optional: for editing
+            Route::post('/testimoni/{id}', [AdminController::class, 'updateHomepageTestimoni'])->name('testimoni.update');
+            Route::delete('/testimoni/{id}', [AdminController::class, 'deleteHomepageTestimoni'])->name('testimoni.delete');
         });
         
         // Edu Management

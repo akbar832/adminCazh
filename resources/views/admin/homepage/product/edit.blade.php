@@ -6,7 +6,7 @@
 @section('content')
 <div class="section-card p-6">
     <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl font-bold text-cards-teal">Product Section - Edit</h2>
+        <h2 class="text-xl font-semibold text-cards-teal">Product Section - Edit</h2>
         <a href="{{ route('admin.homepage.product') }}" class="btn-back">
             <span class="mr-2">←</span>Kembali
         </a>
